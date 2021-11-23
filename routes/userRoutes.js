@@ -43,4 +43,9 @@ router.post('/users/register', async function (req, res) {
 
 })
 
+// Get user individual user data
+router.get('/user', passport.authenticate('jwt'), async function (req, res) {
+  await res.json(req.user)
+})
+
 module.exports = router
