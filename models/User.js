@@ -15,18 +15,14 @@ const User = new Schema({
     required: true,
     unique: true
   },
-  preferences: [
-    waveHeights: [
+  preferences: [{
+    waveHeights: [{
       height: Number
-    ],
-    waterTemp: [
+    }],
+    waterTemp: [{
       lowTemp: Number,
       highTemp: Number
-    ]
-  ],
-  jobs: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Job'
+    }]
   }]
 })
 
