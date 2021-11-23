@@ -1,4 +1,5 @@
 const { model, Schema } = require('mongoose')
+const { number } = require('yargs')
 
 const User = new Schema({
   first_name: String,
@@ -14,6 +15,15 @@ const User = new Schema({
     required: true,
     unique: true
   },
+  preferences: [
+    waveHeights: [
+      height: Number
+    ],
+    waterTemp: [
+      lowTemp: Number,
+      highTemp: Number
+    ]
+  ],
   jobs: [{
     type: Schema.Types.ObjectId,
     ref: 'Job'
