@@ -6,7 +6,6 @@ const { User } = require('../models')
 
 // Create user data
 router.post('/users/register', async function (req, res) {
-  console.log(req.body)
 
   // Create variables for incoming data
   const {
@@ -43,9 +42,19 @@ router.post('/users/register', async function (req, res) {
 
 })
 
+// Authenicate a user and sign them in if user params match
+router.post('/users/login', (req, res) => {
+  User.authenticate()(req.body.username, req.body.password, (err, user) => {
+    if (err) { console.log(err) }
+    res.json(user ? jwt.sign({ id: user._id }, process.env.SECRET) : null)
+  })
+})
+
 // Get user individual user data
 router.get('/user', passport.authenticate('jwt'), async function (req, res) {
   await res.json(req.user)
 })
+
+
 
 module.exports = router
