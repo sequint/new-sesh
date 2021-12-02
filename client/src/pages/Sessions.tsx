@@ -1,5 +1,6 @@
+import { FC } from 'react'
 
-const Sessions = () => {
+const Sessions: FC = () => {
   return (
     <>
       <h1>Sessions</h1>
