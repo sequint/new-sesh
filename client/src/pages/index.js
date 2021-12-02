@@ -1,6 +1,6 @@
-import Home from './Home/Home'
-import Preferences from './Preferences/Preferences'
-import Sessions from './Sessions/Sessions'
+import Home from './Home'
+import Preferences from './Preferences'
+import Sessions from './Sessions'
 
 export {
   Home,
